@@ -1,50 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EasyCook App</title>
-    <!-- Ajoutez les liens vers vos fichiers CSS ici -->
+    <title>Pagination</title>
 </head>
 <body>
-    <div id="app">
-        <!-- Barre de recherche avec autocomplétion -->
-        <input type="text" id="search" placeholder="Rechercher une recette...">
-        <div id="searchResults"></div>
-
-        <!-- Affichage des recettes aléatoires -->
-        <div id="randomRecipes">
-            <!-- Les recettes aléatoires seront affichées ici -->
-        </div>
-
-        <!-- Affichage des détails de la recette -->
-        <div id="recipeDetails">
-            <!-- Les détails de la recette seront affichés ici -->
-        </div>
-
-        <!-- Liste de courses -->
-        <div id="shoppingList">
-            <h2>Liste de courses</h2>
-            <ul id="listItems">
-                <!-- Les éléments de la liste de courses seront affichés ici -->
-            </ul>
-            <button id="generateListBtn">Générer liste de courses</button>
-            <button id="clearListBtn">Supprimer liste de courses</button>
-        </div>
-
-        <!-- Pagination pour afficher toutes les recettes -->
-        <div id="allRecipes">
-            <!-- Les recettes seront affichées ici avec la pagination -->
-        </div>
-
-        <!-- Planification des repas -->
-        <div id="mealPlan">
-            <!-- Les recettes sélectionnées pour le planning seront affichées ici -->
-        </div>
-    </div>
-
-    <!-- Ajoutez les liens vers vos fichiers JavaScript ici -->
+    <nav aria-label="...">
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item active" aria-current="page">
+            <a class="page-link" href="#">2</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>      
 </body>
 </html>
-
-
