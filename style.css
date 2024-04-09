@@ -69,8 +69,8 @@ nav ul li a {
     cursor: pointer;
 }
 
-.search button:hover {
-    background-color: #ffc107;
+#search-results li:hover {
+    background-color: #f0f0f0; /* Couleur de fond au survol */
 }
 
 #search-results li {
