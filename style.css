@@ -210,7 +210,7 @@ footer {
 
 .carousel:hover .carousel-control-prev,
 .carousel:hover .carousel-control-next {
-    visibility: visible;
+    visibility: hidden;
 }
 
 #carouseltxt{

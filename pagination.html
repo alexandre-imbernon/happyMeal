@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 <body>
     <header>
@@ -26,7 +28,14 @@
             </ul>
         </nav>
 
-        <button type="button" class="btn btn-success" id="show-favorites-btn">Voir les favoris</button>
+        <div class="d-flex align-items-center">
+            <button type="button" class="btn btn-success mr-2" id="show-favorites-btn">
+                <i class="fas fa-star"></i> <!-- Icône d'étoile pour les favoris -->
+            </button>
+            <button type="button" class="btn btn-success" id="add-to-cart-btn">
+                <i class="fas fa-shopping-basket"></i> <!-- Icône de panier pour ajouter des ingrédients à la liste de favoris -->
+            </button>
+        </div>
 
     </header>
     <div id="search-results"></div>
