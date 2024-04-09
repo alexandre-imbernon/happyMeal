@@ -202,3 +202,18 @@ footer {
     margin-bottom: 10px;
 }
 
+/*CAROUSEL*/
+.carousel-control-prev,
+.carousel-control-next {
+    visibility: hidden;
+}
+
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next {
+    visibility: visible;
+}
+
+#carouseltxt{
+    color: white;
+    text-shadow: 4px 4px 6px rgb(9, 72, 8);
+}
