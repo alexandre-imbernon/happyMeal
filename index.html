@@ -6,6 +6,7 @@
     <title>Application de Recettes</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<<<<<<< HEAD
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,3 +107,46 @@
     <script src="random.js"></script>
 </body>
 </html>
+=======
+
+</head>
+<body>
+    <!--Barre de recherche-->
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="Rechercher une recette ou ingredient">
+        <ul id="search-results"></ul>
+    </div>
+
+    
+    <div id="recipe-container">
+        <h1>Recettes du jour :</h1>
+        <div id="recipe"></div>
+    </div>
+   
+    <!-- Modal -->
+    <div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="recipeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="recipeModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-recipe"></div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Button show the favorites -->
+    <button type="button" class="btn btn-success" id="show-favorites-btn">Voir les favoris</button>
+
+    <!--SCRIPT-->
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../happyMeal/javascript/random.js"></script>
+</body>
+</html>
+
+>>>>>>> f0e79486a67fd97d5f2f4aee9905db31973aed20
