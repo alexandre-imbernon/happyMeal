@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const carouselItems = document.querySelectorAll(".carousel-item");
     const recipeModal = new bootstrap.Modal(document.getElementById('recipeModal1'));
+    const carousel = new bootstrap.Carousel(document.querySelector('#carouselExampleCaptions1')); 
 
     carouselItems.forEach((item, index) => {
         item.addEventListener("click", function() {
@@ -29,5 +30,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 })
                 .catch(error => console.error('Error fetching data:', error));
         });
+    });
+    document.addEventListener('keydown', function(event) {
+        switch (event.key) {
+            case 'ArrowLeft':
+                carousel.prev();
+                break;
+            case 'ArrowRight':
+                carousel.next();
+                break;
+        }
     });
 });
