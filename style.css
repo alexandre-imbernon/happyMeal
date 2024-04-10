@@ -21,6 +21,9 @@ header {
     margin: 0;
 }
 
+#modaltxt {
+    color: red;
+}
 nav ul {
     list-style-type: none;
     padding: 0;

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application de Recettes</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +28,7 @@
             <ul>
                 <li><a class="Aheader" href="index.html"> Accueil</a></li>
                 <li><a class="Aheader" href="pagination.html"> Toutes les Recettes</a></li>
-                <li><a class="Aheader" href=""> Planning</a></li>
+                <li><a class="Aheader" href="calendrier.html"> Planning</a></li>
             </ul>
         </nav>
 
@@ -70,6 +69,23 @@
                 </div>
             </div>
         </div>
+
+           <!-- Modal pour afficher les recettes favorites -->
+        <div class="modal fade" id="favoritesModal" tabindex="-1" role="dialog" aria-labelledby="favoritesModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="favoritesModalLabel">Vos recettes favorites</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="favorites-modal-body"></div>
+                </div>
+            </div>
+        </div>
+ 
+
 
        <!--Carousel-->
        <div class="d-flex justify-content-center align-items-center vh-100">
@@ -203,11 +219,9 @@
     </footer>
     
     <!--SCRIPT-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="random.js"></script>
     <script src="carousel.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
-    
 </body>
 </html>
