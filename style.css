@@ -87,8 +87,6 @@ nav ul li a {
     justify-content: space-around; /* Pour espacer uniformément les recettes */
     align-items: center; /* Pour aligner verticalement les recettes */
     margin: 20px;
-    
-   
 }
 
 /* .recipe-container {
