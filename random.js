@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const recipeContainer = document.getElementById('recipe');
+    const recipeContainer = document.getElementById('recipe-container');
     const shoppingListContainer = document.getElementById('shopping-list');
     const modalRecipe = document.getElementById('modal-recipe');
     const modal = new bootstrap.Modal(document.getElementById('recipeModal'));
@@ -10,21 +10,20 @@ document.addEventListener('DOMContentLoaded', function() {
     let allRecipes = [];
 
     fetch('data.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            allRecipes = data.recettes;
-            if (searchInput.value.trim() === '') { 
-                generateRandomRecipe(allRecipes);
-            }
-        })
-        .catch(error => {
-            console.error('Fetch error:', error);
-        });
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        allRecipes = data.recettes;
+        generateRandomRecipe(allRecipes); // Appel de la fonction pour afficher des recettes aléatoires
+    })
+    .catch(error => {
+        console.error('Fetch error:', error);
+    });
+
 
     function generateRandomRecipe(recipes) {
         const randomRecipes = [];
@@ -36,15 +35,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function displayRecipes(recipes) {
-        recipeContainer.innerHTML = ''; 
+        recipeContainer.innerHTML = '';
 
         recipes.forEach(recipe => {
             const recipeElement = document.createElement('div');
             recipeElement.innerHTML = `
-                <h2>${recipe.nom}</h2>
-                <p><strong>Catégorie:</strong> ${recipe.categorie}</p>
-                <p><strong>Temps de préparation:</strong> ${recipe.temps_preparation}</p>
-                <button class="btn btn-primary view-recipe-btn">Voir la recette</button>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="card-title">${recipe.nom}</h2>
+                    <p class="card-text"><strong>${recipe.categorie}</strong</p>
+                    <p class="card-text"><strong>${recipe.temps_preparation}</strong></p>
+                    <a class="btn btn-primary view-recipe-btn">Voir la recette</a>
+                </div>
+            </div>
             `;
             const viewRecipeBtn = recipeElement.querySelector('.view-recipe-btn');
             viewRecipeBtn.addEventListener('click', function() {

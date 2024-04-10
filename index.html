@@ -6,44 +6,208 @@
     <title>Application de Recettes</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    
 
 </head>
 <body>
-    <!--Barre de recherche-->
-    <div id="search-container">
-        <input type="text" id="search-input" placeholder="Rechercher une recette ou ingredient">
-        <ul id="search-results"></ul>
-    </div>
+    <header>
+        <img src="../happyMeal/images/logo.png" alt="LOGO">
+        
+        <div id="search-container">
+            <input type="text" id="search-input" placeholder="Rechercher une recette ">
+        </div>
 
-    
-    <div id="recipe-container">
+        
+
+        <nav>
+            <ul>
+                <li><a class="Aheader" href="index.html"> Accueil</a></li>
+                <li><a class="Aheader" href="pagination.html"> Toutes les Recettes</a></li>
+                <li><a class="Aheader" href=""> Planning</a></li>
+            </ul>
+        </nav>
+
+        <div class="d-flex align-items-center">
+            <button type="button" class="btn btn-success mr-2" id="show-favorites-btn">
+                <i class="fas fa-star"></i> <!-- Icône d'étoile pour les favoris -->
+            </button>
+            <button type="button" class="btn btn-success" id="add-to-cart-btn">
+                <i class="fas fa-shopping-basket"></i> <!-- Icône de panier pour ajouter des ingrédients à la liste de favoris -->
+            </button>
+        </div>
+       
+    </header>
+    <div id="search-results"></div>
+
+    <main>
+        <img id="tete" src="../happyMeal/images/tete.png" alt="">
+
         <h1>Recettes du jour :</h1>
-        <div id="recipe"></div>
+        <hr class="line">
+        
+        
+        
+        <div id="recipe-container" class="recipe-container"></div>
+    
+        <!-- Modal -->
+        <div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="recipeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="recipeModalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modal-recipe"></div>
+                    
+                </div>
+            </div>
+        </div>
+
+       <!--Carousel-->
+       <div class="d-flex justify-content-center align-items-center vh-100">
+        <div id="carouselExampleCaptions1" class="carousel slide w-75 h-75" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="6" aria-label="Slide 7"></button>
+            </div>
+            <div class="carousel-inner rounded border border-success">
+                <div class="carousel-item active" data-recipe-index="0">
+                    <img src="images/pouletrotiauxherbes.jpg" class="d-block w-100" alt="Poulet rôti aux herbes">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="font-weight-bold" id="carouseltxt">Poulet rôti aux herbes</h5>
+                        <p class="font-weight-bold" id="carouseltxt">Un plat classique où le poulet est assaisonné d’un mélange d’herbes aromatiques et rôti jusqu’à obtenir une peau croustillante et une chair juteuse.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-recipe-index="1">
+                    <img src="images/saladequinoalegumesgrilles.jpg" class="d-block w-100" alt="Salade quinoa aux légumes grillés">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="font-weight-bold" id="carouseltxt">Salade quinoa aux légumes grillés</h5>
+                        <p class="font-weight-bold" id="carouseltxt">Une salade nutritive composée de quinoa, de légumes grillés variés et d’une vinaigrette légère.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-recipe-index="2">
+                    <img src="images/tarteauxpommes.jpg" class="d-block w-100" alt="Tarte aux pommes">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="font-weight-bold" id="carouseltxt">Tarte aux pommes</h5>
+                        <p class="font-weight-bold" id="carouseltxt">Une tarte sucrée avec des tranches de pommes tendres et épicées, enveloppées dans une pâte feuilletée dorée.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-recipe-index="3">
+                    <img src="images/soupedelentilles.jpg" class="d-block w-100" alt="Soupe de lentilles">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="font-weight-bold" id="carouseltxt">Soupe de lentilles</h5>
+                        <p class="font-weight-bold" id="carouseltxt">Une soupe réconfortante et riche en protéines, préparée avec des lentilles, des légumes et des épices.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-recipe-index="4">
+                    <img src="images/patescarbonara.jpg" class="d-block w-100" alt="Pâtes Carbonara">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="font-weight-bold" id="carouseltxt">Pâtes Carbonara</h5>
+                        <p class="font-weight-bold" id="carouseltxt">Un plat de pâtes italien crémeux avec du lard, du fromage parmesan et un œuf délicatement cuit.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-recipe-index="5">
+                    <img src="images/risottoauxchampignons.jpg" class="d-block w-100" alt="Risotto aux champignons">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="font-weight-bold" id="carouseltxt">Risotto aux champignons</h5>
+                        <p class="font-weight-bold" id="carouseltxt">Un risotto crémeux et savoureux, cuisiné lentement avec des champignons et du bouillon jusqu’à une consistance parfaite.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-recipe-index="6">
+                    <img src="images/saladedefruits.jpg" class="d-block w-100" alt="Salade de fruits frais">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="font-weight-bold" id="carouseltxt">Salade de fruits frais</h5>
+                        <p class="font-weight-bold" id="carouseltxt">Un mélange rafraîchissant de fruits de saison, coupés et servis avec un filet de jus de citron ou de miel.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
     </div>
-   
-    <!-- Modal -->
-    <div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="recipeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+    <div class="modal fade" id="recipeModal1" tabindex="-1" aria-labelledby="recipeModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="recipeModalLabel"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h5 class="modal-title" id="recipeModalLabel1">Détails de la recette</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" id="modal-recipe"></div>
-                
+                <div class="modal-body">
+                    <h5 id="modalTitle1"></h5>
+                    <p id="modalDescription1"></p>
+                </div>
             </div>
         </div>
     </div>
-
-    <!-- Button show the favorites -->
-    <button type="button" class="btn btn-success" id="show-favorites-btn">Voir les favoris</button>
-
-    <!--SCRIPT-->
+    <div class="modal fade" id="recipeModal2" tabindex="-1" aria-labelledby="recipeModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="recipeModalLabel2">Détails de la recette</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5 id="modalTitle2"></h5>
+                    <p id="modalDescription2"></p>
+                </div>
+            </div>
+        </div>
+    </div>
     
+       
+    </main>
+
+    
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>A propos de nous</h3>
+                    <p>
+                        Bienvenue chez HappyMeal ! Nous sommes votre destination en ligne pour des recettes délicieuses, des conseils pratiques et une inspiration culinaire infinie. Rejoignez-nous pour explorer et créer ensemble des plats savoureux qui éveilleront vos papilles et raviront vos proches.</p>
+                </div>
+                <div class="footer-section links">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#">Recettes</a></li>
+                        <li><a href="#">À propos</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 HappyMeal. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+    
+    <!--SCRIPT-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="random.js"></script>
+    <script src="carousel.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../happyMeal/javascript/random.js"></script>
+    
+    
 </body>
 </html>
-
