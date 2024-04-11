@@ -82,23 +82,45 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
 
-    // Fonction pour ajouter une recette aux favoris
-    function addToFavorites(recipe) {
+    
+ // Fonction pour ajouter une recette aux favoris
+ function addToFavorites(recipe) {
+    if (recipe) { // Vérification si recipe est défini
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         favorites.push(recipe);
         localStorage.setItem('favorites', JSON.stringify(favorites));
-        alert('Recette ajoutée aux favoris !');
+    } else {
+        console.error("Tentative d'ajout d'une recette vide aux favoris.");
     }
+}
 
-    // Fonction pour afficher les favoris
-    favoritesBtn.addEventListener('click', function() {
-        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+function showModalFavorites() {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const favoritesModalBody = document.getElementById('favorites-modal-body');
+    favoritesModalBody.innerHTML = ''; // Effacer le contenu précédent
+    
+    if (Array.isArray(favorites)) { // Vérification si favorites est un tableau
         if (favorites.length > 0) {
-            alert('Recettes favorites :\n\n' + favorites.map(recipe => recipe.nom).join('\n'));
+            favorites.forEach(recipe => {
+                if (recipe && recipe.nom) { // Vérification si recipe est défini et a une propriété 'nom'
+                    const p = document.createElement('p');
+                    p.textContent = recipe.nom;
+                    favoritesModalBody.appendChild(p);
+                }
+            });
         } else {
-            alert('Aucune recette favorite.');
+            favoritesModalBody.innerHTML = '<p>Aucune recette favorite.</p>';
         }
-    });
+    } else {
+        console.error("La liste des favoris n'est pas un tableau valide.");
+    }
+    
+    const favoritesModal = new bootstrap.Modal(document.getElementById('favoritesModal'));
+    favoritesModal.show();
+}
+
+// Modification de l'événement pour afficher les favoris
+favoritesBtn.addEventListener('click', showModalFavorites);
 
     // Fonction de recherche de recette
     searchInput.addEventListener('input', function() {
