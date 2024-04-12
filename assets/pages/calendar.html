@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <header>
+        <div id="modal" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modaltxt">Ajouter un plat pour le : <span id="selected-date"></span></h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" id="modaltxt">
+                        <p class="favoritesdisplay">aaa</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="../../index.html">
+            <img href="/index.html" class="logosite" src="../images/logo.svg" alt="LOGO">
+        </a>
+        
+        <nav>
+            <ul>
+                <li><a class="Aheader" href="../../index.html">Accueil</a></li>
+                <li><a class="Aheader" href="pagination.html">Toutes les Recettes</a></li>
+                <li><a class="Aheader" href="calendar.html">Planning</a></li>
+            </ul>
+        </nav>
+        <div class="d-flex align-items-center">
+            <button type="button" class="btn btn-success mr-2" id="show-favorites-btn">
+                <i class="fas fa-star"></i> 
+            </button>
+            <button type="button" class="btn btn-success" id="add-to-cart-btn">
+                <i class="fas fa-shopping-basket"></i> 
+            </button>
+        </div>
+    </header>
+    <div id="search-results"></div>
+
+    <main>
+        <img id="tete" src="" alt="">
+        <div id='calendar'></div>
+        <div id="favorites-container"></div> 
+        <div class="modal fade" id="favoritesModal" tabindex="-1" role="dialog" aria-labelledby="favoritesModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="favoritesModalLabel">Choisissez une recette à ajouter au calendrier:</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="favoritesModalBody">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal pour afficher la liste de courses -->
+        <div class="modal fade" id="shoppingListModal" tabindex="-1" role="dialog" aria-labelledby="shoppingListModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="shoppingListModalLabel">Votre liste de courses</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="shopping-list-modal-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>A propos de nous</h3>
+                    <p>Bienvenue chez HappyMeal ! Nous sommes votre destination en ligne pour des recettes délicieuses, des conseils pratiques et une inspiration culinaire infinie. Rejoignez-nous pour explorer et créer ensemble des plats savoureux qui éveilleront vos papilles et raviront vos proches.</p>
+                </div>
+                <div class="footer-section links">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="../../index.html">Accueil</a></li>
+                        <li><a href="pagination.html">Recettes</a></li>
+                        <li><a href="calendar.html">Planning</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 HappyMeal. Tous droits réservés.
+            </div>
+        </div>
+        <script></script>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/locales/fr.js"></script>
+    <script src="../javascript/random.js"></script>
+    <script src="../javascript/calendar.js"></script>
+</body>
+</html>
