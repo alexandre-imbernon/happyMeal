@@ -124,8 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
 const addToCartBtn = document.getElementById('add-to-cart-btn');
 addToCartBtn.addEventListener('click', displayShoppingList);
 
-
-
  // Fonction pour ajouter une recette aux favoris
 function addToFavorites(recipe) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -186,27 +184,3 @@ favoritesBtn.addEventListener('click', showModalFavorites);
         }
     }
 });
-
-function downloadShoppingListPDF() {
-    // Sélection du contenu du modal de la liste de course
-    const shoppingListModalContent = document.getElementById('shopping-list-modal-body').innerHTML;
-
-    // Création d'un nouveau document PDF
-    const doc = new jsPDF();
-
-    // Définition de la taille de police et de la marge
-    const fontSize = 12;
-    const margin = 10;
-
-    // Position initiale du texte
-    let y = margin;
-
-    // Ajout du contenu du modal de la liste de course dans le PDF
-    doc.setFontSize(fontSize);
-    doc.text(shoppingListModalContent, margin, y);
-
-    // Téléchargement du document PDF
-    doc.save('liste_de_courses.pdf');
-}
-
-

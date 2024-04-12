@@ -10,13 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    
-    
-
 </head>
 <body>
     <header>
-        <img src="../happyMeal/logo.png" alt="LOGO">
+        <img href="index.html" class="logosite" src="logo.svg" alt="LOGO">
         
         <div id="search-container">
             <input type="text" id="search-input" placeholder="Rechercher une recette ">
@@ -44,9 +41,8 @@
     </header>
     <div id="search-results"></div>
     
-
     <main>
-        <img id="tete" src="../happyMeal/images/tete.png" alt="">
+        <img id="tete" src="/tete.svg" alt="">
 
         <h1>Recettes du jour :</h1>
         <hr class="line">
@@ -118,49 +114,49 @@
             </div>
             <div class="carousel-inner rounded border border-success">
                 <div class="carousel-item active" data-recipe-index="0">
-                    <img src="images/pouletrotiauxherbes.jpg" class="d-block w-100" alt="Poulet rôti aux herbes">
+                    <img src="images/pouletrotiauxherbes.svg" class="d-block w-100" alt="Poulet rôti aux herbes">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="font-weight-bold" id="carouseltxt">Poulet rôti aux herbes</h5>
                         <p class="font-weight-bold" id="carouseltxt">Un plat classique où le poulet est assaisonné d’un mélange d’herbes aromatiques et rôti jusqu’à obtenir une peau croustillante et une chair juteuse.</p>
                     </div>
                 </div>
                 <div class="carousel-item" data-recipe-index="1">
-                    <img src="images/saladequinoalegumesgrilles.jpg" class="d-block w-100" alt="Salade quinoa aux légumes grillés">
+                    <img src="images/saladequinoalegumesgrilles.svg" class="d-block w-100" alt="Salade quinoa aux légumes grillés">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="font-weight-bold" id="carouseltxt">Salade quinoa aux légumes grillés</h5>
                         <p class="font-weight-bold" id="carouseltxt">Une salade nutritive composée de quinoa, de légumes grillés variés et d’une vinaigrette légère.</p>
                     </div>
                 </div>
                 <div class="carousel-item" data-recipe-index="2">
-                    <img src="images/tarteauxpommes.jpg" class="d-block w-100" alt="Tarte aux pommes">
+                    <img src="images/tarteauxpommes.svg" class="d-block w-100" alt="Tarte aux pommes">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="font-weight-bold" id="carouseltxt">Tarte aux pommes</h5>
                         <p class="font-weight-bold" id="carouseltxt">Une tarte sucrée avec des tranches de pommes tendres et épicées, enveloppées dans une pâte feuilletée dorée.</p>
                     </div>
                 </div>
                 <div class="carousel-item" data-recipe-index="3">
-                    <img src="images/soupedelentilles.jpg" class="d-block w-100" alt="Soupe de lentilles">
+                    <img src="images/soupedelentilles.svg" class="d-block w-100" alt="Soupe de lentilles">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="font-weight-bold" id="carouseltxt">Soupe de lentilles</h5>
                         <p class="font-weight-bold" id="carouseltxt">Une soupe réconfortante et riche en protéines, préparée avec des lentilles, des légumes et des épices.</p>
                     </div>
                 </div>
                 <div class="carousel-item" data-recipe-index="4">
-                    <img src="images/patescarbonara.jpg" class="d-block w-100" alt="Pâtes Carbonara">
+                    <img src="images/patescarbonara.svg" class="d-block w-100" alt="Pâtes Carbonara">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="font-weight-bold" id="carouseltxt">Pâtes Carbonara</h5>
                         <p class="font-weight-bold" id="carouseltxt">Un plat de pâtes italien crémeux avec du lard, du fromage parmesan et un œuf délicatement cuit.</p>
                     </div>
                 </div>
                 <div class="carousel-item" data-recipe-index="5">
-                    <img src="images/risottoauxchampignons.jpg" class="d-block w-100" alt="Risotto aux champignons">
+                    <img src="images/risottoauxchampignons.svg" class="d-block w-100" alt="Risotto aux champignons">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="font-weight-bold" id="carouseltxt">Risotto aux champignons</h5>
                         <p class="font-weight-bold" id="carouseltxt">Un risotto crémeux et savoureux, cuisiné lentement avec des champignons et du bouillon jusqu’à une consistance parfaite.</p>
                     </div>
                 </div>
                 <div class="carousel-item" data-recipe-index="6">
-                    <img src="images/saladedefruits.jpg" class="d-block w-100" alt="Salade de fruits frais">
+                    <img src="images/saladedefruits.svg" class="d-block w-100" alt="Salade de fruits frais">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="font-weight-bold" id="carouseltxt">Salade de fruits frais</h5>
                         <p class="font-weight-bold" id="carouseltxt">Un mélange rafraîchissant de fruits de saison, coupés et servis avec un filet de jus de citron ou de miel.</p>
@@ -206,7 +202,8 @@
         </div>
     </div>
     
-    <button id="downloadShoppingListPDF" onclick="downloadShoppingListPDF()">Télécharger la Liste de Courses</button>
+    <button id="downloadpdf" class="downloadpdf">Télécharger la Liste de Courses en PDF</button>
+
 
     </main>
 
@@ -237,9 +234,10 @@
     </footer>
     
     <!--SCRIPT-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    <script src="dataToPDF.js"></script>
     <script src="random.js"></script>
     <script src="carousel.js"></script>
 </body>

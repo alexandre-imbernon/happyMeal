@@ -16,6 +16,10 @@ header {
     font-family: Lato ;
 }
 
+.logosite {
+    width: 150px;
+    height: 150px;
+}
 
 .logo h1 {
     margin: 0;
@@ -140,6 +144,24 @@ h1{
     margin: 0 auto; /* Centrez horizontalement */
     border-top: 1px solid rgb(9, 72, 8); /* Couleur bleue par exemple */}
 
+/*Bouton telechargement*/
+.downloadpdf {
+    display: flex;
+    margin: 0 auto;
+    background-color: #5c9854;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    margin-bottom: 1.2rem;
+}
+.downloadpdf:hover {
+    background-color: #333;
+    color: white
+}
 
 
 
