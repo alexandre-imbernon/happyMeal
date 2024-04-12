@@ -1,3 +1,34 @@
+// Déplacer la fonction displayShoppingList en dehors de la fonction DOMContentLoaded
+function displayShoppingList() {
+    let shoppingList = JSON.parse(localStorage.getItem('ListeCourse')) || [];
+    const shoppingListModalBody = document.getElementById('shopping-list-modal-body');
+    if (shoppingList.length > 0) {
+        shoppingListModalBody.innerHTML = shoppingList.map((ingredient, index) => `
+            <p>${ingredient.nom} - ${ingredient.quantite} 
+                <button class="btnSupprFavorite" onclick="removeToShoppingList(${index})">X</button>
+            </p>`).join('');
+    } else {
+        shoppingListModalBody.innerHTML = '<p>Aucun ingrédient dans la liste de courses.</p>';
+    }
+    const shoppingListModal = new bootstrap.Modal(document.getElementById('shoppingListModal'));
+    shoppingListModal.show();
+}
+
+// Fonction pour ajouter un ingrédient à la liste de courses
+function addToShoppingList(ingredient) {
+    let shoppingList = JSON.parse(localStorage.getItem('ListeCourse')) || [];
+    shoppingList.push(ingredient);
+    localStorage.setItem('ListeCourse', JSON.stringify(shoppingList));
+}
+
+// Fonction pour supprimer un ingrédient à la liste de courses
+function removeToShoppingList(ingredientIndex) {
+    let shoppingList = JSON.parse(localStorage.getItem('ListeCourse')) || [];
+    shoppingList.splice(ingredientIndex, 1); // Supprimer l'ingrédient à l'index donné
+    localStorage.setItem('ListeCourse', JSON.stringify(shoppingList));
+    displayShoppingList();
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const recipeContainer = document.getElementById('recipe-container');
     const shoppingListContainer = document.getElementById('shopping-list');
@@ -36,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function displayRecipes(recipes) {
         recipeContainer.innerHTML = '';
+        index = 0;
 
         recipes.forEach(recipe => {
             const recipeElement = document.createElement('div');
@@ -64,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <p><strong>Temps de préparation:</strong> ${recipe.temps_preparation}</p>
             <h3>Ingrédients :</h3>
             <ul>
-                ${recipe.ingredients.map(ingredient => `<li>${ingredient.nom} - ${ingredient.quantite}</li>`).join('')}
+                ${recipe.ingredients.map(ingredient => `<li>${ingredient.nom} - ${ingredient.quantite}</li> <button class="add-to-shopping-btn" data-index="${index}">+</button>`).join('')}
             </ul>
             <h3>Étapes :</h3>
             <ol>
@@ -77,26 +109,29 @@ document.addEventListener('DOMContentLoaded', function() {
         addToFavoritesBtn.addEventListener('click', function() {
             addToFavorites(recipe);
         });
-    
+
+        const addToShoppingBtns = modalRecipe.querySelectorAll('.add-to-shopping-btn');
+        addToShoppingBtns.forEach((btn, index) => {
+            btn.addEventListener('click', function() {
+            const ingredientIndex = parseInt(btn.getAttribute('data-index'));
+            addToShoppingList(recipe.ingredients[index]);
+            });
+        });
         modal.show();
     }
-    
 
-    
+// Ajout d'un écouteur d'événement au bouton add-to-cart-btn pour afficher la liste de courses
+const addToCartBtn = document.getElementById('add-to-cart-btn');
+addToCartBtn.addEventListener('click', displayShoppingList);
+
+
+
  // Fonction pour ajouter une recette aux favoris
 function addToFavorites(recipe) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     favorites.push(recipe);
     localStorage.setItem('favorites', JSON.stringify(favorites));
     showModalFavorites();
-}
-
-// Fonction pour afficher le message de recette ajoutée aux favoris dans une modale
-function showModalFavorites() {
-    const modalBody = document.getElementById('modal-favorites-body');
-    modalBody.innerHTML = '<p>Recette ajoutée aux favoris !</p>';
-    const modal = new bootstrap.Modal(document.getElementById('favoritesModal'));
-    modal.show();
 }
 
 // Fonction pour afficher les favoris dans une modale
@@ -151,3 +186,27 @@ favoritesBtn.addEventListener('click', showModalFavorites);
         }
     }
 });
+
+function downloadShoppingListPDF() {
+    // Sélection du contenu du modal de la liste de course
+    const shoppingListModalContent = document.getElementById('shopping-list-modal-body').innerHTML;
+
+    // Création d'un nouveau document PDF
+    const doc = new jsPDF();
+
+    // Définition de la taille de police et de la marge
+    const fontSize = 12;
+    const margin = 10;
+
+    // Position initiale du texte
+    let y = margin;
+
+    // Ajout du contenu du modal de la liste de course dans le PDF
+    doc.setFontSize(fontSize);
+    doc.text(shoppingListModalContent, margin, y);
+
+    // Téléchargement du document PDF
+    doc.save('liste_de_courses.pdf');
+}
+
+
